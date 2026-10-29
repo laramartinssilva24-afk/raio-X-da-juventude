@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Raio-X da Juventude</title>
+    <!-- Tailwind CSS para um visual moderno e rápido -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Plotly.js para os gráficos interativos -->
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+
+    <!-- Header / Banner Principal -->
+    <header class="bg-gradient-to-r from-blue-700 to-indigo-900 text-white py-12 px-6 text-center shadow-lg">
+        <nav class="max-w-6xl mx-auto mb-10 flex justify-center gap-3 text-sm" aria-label="Navegação principal">
+            <a href="#objetivo" class="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition">Objetivo</a>
+            <a href="#dados" class="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition">Dados</a>
+            <a href="#propostas" class="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition">Propostas</a>
+        </nav>
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Projeto Raio-X da Juventude</h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto text-indigo-100">
+            Análise de Condições de Vida e Métricas para Atuação Social e Educacional.
+        </p>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="max-w-6xl mx-auto px-6 py-12 space-y-16">
+
+        <!-- Seção: Objetivo -->
+        <section id="objetivo" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                📌 Objetivo do Diagnóstico
+            </h2>
+            <p class="text-gray-600 text-lg">
+                Este projeto mapeia as condições socioeconômicas e educacionais de jovens, gerando dados consolidados e insights acionáveis que servem de base para políticas públicas e intervenções diretas de melhoria no ensino e bem-estar.
+            </p>
+        </section>
+
+        <!-- Seção: Dados e Gráficos -->
+        <section id="dados" class="space-y-6 scroll-mt-8">
+            <div class="border-b border-gray-200 pb-4">
+                <h2 class="text-2xl font-bold text-gray-900">📊 Gráficos Interativos (Métricas Coletadas)</h2>
+                <p class="text-gray-500">Explore cenários e compare os indicadores da juventude pesquisada.</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-3 bg-white border border-gray-100 rounded-xl p-4">
+                <label for="cenario" class="font-semibold text-gray-700">Cenário de renda:</label>
+                <select id="cenario" class="border border-gray-300 rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="geral">Visão geral</option>
+                    <option value="baixa">Até 1 salário mínimo</option>
+                    <option value="media">Acima de 1 salário mínimo</option>
+                </select>
+                <span id="resumoDados" class="ml-auto text-sm text-gray-500" aria-live="polite"></span>
+            </div>
+
+            <!-- Grid de Gráficos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Gráfico 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div id="graficoRenda" class="w-full h-80"></div>
+                </div>
+                <!-- Gráfico 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div id="graficoImpacto" class="w-full h-80"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Pilares Estratégicos -->
+        <section id="propostas" class="space-y-6 scroll-mt-8">
+            <div class="border-b border-gray-200 pb-4">
+                <h2 class="text-2xl font-bold text-gray-900">💡 Propostas de Impacto</h2>
+                <p class="text-gray-500">Planos estratégicos elaborados com base nas disparidades encontradas nas análises.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="proposta-card bg-white p-6 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md transition cursor-pointer" tabindex="0" role="button" aria-expanded="false">
+                    <div class="text-blue-600 text-3xl mb-3">💻</div>
+                    <h3 class="font-bold text-xl mb-2 text-gray-900">Inclusão Digital</h3>
+                    <p class="text-gray-600 text-sm">Criação de polos comunitários de estudos com internet de alta velocidade e equipamentos gratuitos para jovens de baixa renda.</p>
+                    <p class="detalhe-proposta hidden mt-4 pt-4 border-t border-blue-100 text-sm text-blue-800">Prioridade: ampliar acesso em bairros com menor cobertura; indicador inicial: horas semanais de estudo.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="proposta-card bg-white p-6 rounded-2xl border border-purple-100 shadow-sm hover:shadow-md transition cursor-pointer" tabindex="0" role="button" aria-expanded="false">
+                    <div class="text-purple-600 text-3xl mb-3">🧠</div>
+                    <h3 class="font-bold text-xl mb-2 text-gray-900">Apoio Socioemocional</h3>
+                    <p class="text-gray-600 text-sm">Programas de mentoria estudantil e acompanhamento psicossocial nas escolas para reduzir a evasão e melhorar o rendimento.</p>
+                    <p class="detalhe-proposta hidden mt-4 pt-4 border-t border-purple-100 text-sm text-purple-800">Prioridade: detectar sinais precocemente; indicador inicial: frequência escolar e permanência na rede.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="proposta-card bg-white p-6 rounded-2xl border border-indigo-100 shadow-sm hover:shadow-md transition cursor-pointer" tabindex="0" role="button" aria-expanded="false">
+                    <div class="text-indigo-600 text-3xl mb-3">🚀</div>
+                    <h3 class="font-bold text-xl mb-2 text-gray-900">Ensino do Futuro</h3>
+                    <p class="text-gray-600 text-sm">Integração de cursos de programação, análise de dados e habilidades digitais diretamente ao currículo escolar.</p>
+                    <p class="detalhe-proposta hidden mt-4 pt-4 border-t border-indigo-100 text-sm text-indigo-800">Prioridade: projetos práticos e mentoria profissional; indicador inicial: conclusão e portfólio dos alunos.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm border-t border-gray-800">
+        <p>Projeto Raio-X da Juventude &copy; 2026 — Desenvolvido com Python & GitHub Pages</p>
+    </footer>
+
+    <!-- Scripts para renderizar os gráficos dinamicamente na página -->
+    <script>
+        const cenarios = {
+            geral: { renda: [18, 32, 35, 15], estudo: [12.4, 8.2], resumo: '100% da amostra • 10,3 horas de estudo em média' },
+            baixa: { renda: [36, 64, 0, 0], estudo: [9.8, 7.1], resumo: '50% da amostra • maior concentração até 1 salário mínimo' },
+            media: { renda: [0, 0, 70, 30], estudo: [13.7, 9.4], resumo: '50% da amostra • maior acesso a recursos educacionais' }
+        };
+
+        function renderizarGraficos(cenario) {
+            const dados = cenarios[cenario];
+            const config = { responsive: true, displayModeBar: false };
+
+            Plotly.react('graficoRenda', [{
+                values: dados.renda,
+                labels: ['Até 0.5 SM', '0.5 a 1 SM', '1 a 2 SM', 'Mais de 2 SM'],
+                type: 'pie',
+                hole: 0.4,
+                textinfo: 'label+percent',
+                marker: { colors: ['#ef4444', '#f97316', '#3b82f6', '#10b981'] }
+            }], {
+                title: 'Distribuição de Renda Familiar (SM)',
+                margin: { t: 50, b: 20, l: 20, r: 20 }
+            }, config);
+
+            Plotly.react('graficoImpacto', [{
+                x: ['Com Internet', 'Sem Internet'],
+                y: dados.estudo,
+                type: 'bar',
+                text: dados.estudo.map(valor => `${valor} h`),
+                textposition: 'outside',
+                marker: { color: ['#2563eb', '#94a3b8'] }
+            }], {
+                title: 'Média de Horas de Estudo Semanais',
+                yaxis: { title: 'Horas por semana', rangemode: 'tozero' },
+                margin: { t: 50, b: 40, l: 50, r: 20 }
+            }, config);
+
+            document.querySelector('#resumoDados').textContent = dados.resumo;
+        }
+
+        document.querySelector('#cenario').addEventListener('change', (evento) => {
+            renderizarGraficos(evento.target.value);
+        });
+
+        document.querySelectorAll('.proposta-card').forEach((card) => {
+            const alternarDetalhes = () => {
+                const detalhe = card.querySelector('.detalhe-proposta');
+                const expandido = detalhe.classList.toggle('hidden') === false;
+                card.setAttribute('aria-expanded', String(expandido));
+            };
+
+            card.addEventListener('click', alternarDetalhes);
+            card.addEventListener('keydown', (evento) => {
+                if (evento.key === 'Enter' || evento.key === ' ') {
+                    evento.preventDefault();
+                    alternarDetalhes();
+                }
+            });
+        });
+
+        renderizarGraficos('geral');
+    </script>
+</body>
+</html>
